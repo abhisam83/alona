@@ -1,0 +1,36 @@
+pipeline {
+	agent {
+		dockerfile {
+			filename 'Dockerfile'
+			label 'docker'
+		}
+	}
+
+
+environment {
+
+	RC_FOLDER = ''
+
+	AWS_ACCESS_KEY_ID     = credentials('jenkins-aws-secret-key-id')
+        AWS_SECRET_ACCESS_KEY = credentials('jenkins-aws-secret-access-key')
+
+    }
+
+stages {
+
+	stage('Downloading file from S3 bucket') {
+			steps {
+			
+
+
+
+			sh 'aws s3 cp s3://abhibucket00000/abhi/* /home/'
+
+			sh 'aws s3 cp /home/* s3://adambucket00000/adam/'
+
+			
+			}
+		}
+      }
+
+}
