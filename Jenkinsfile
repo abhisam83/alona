@@ -7,16 +7,16 @@ stages {
         steps {
                 withAWS(region: 'ap-south-1' , credentials: 'awsid') \
                  {
-                      s3Download(file:'abhidata',bucket:'abhibucket00000', path:'gold/')
-                      s3Download(file:'abhidata1',bucket:'abhibucket00000', path:'bronze/')
-                   }
+                      s3Download(file:'RC_Folder',bucket:'abhibucket00000', path:'RC_Folder/')
+                      
+                 }
               }
        }
     stage (" File Segregation ") {
         
         steps {
           sh 'mkdir -p internal && mkdir -p external'
-          sh 'cp -r abhidata/gold/ external/ && cp -r abhidata1/bronze/ internal/'
+          sh 'cp -r RC_Folder/gold/ external/ && cp -r RC_Folder/bronze/ internal/'
           }
     
     }
