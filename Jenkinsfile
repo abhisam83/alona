@@ -28,7 +28,7 @@ stages {
                 env.RC_DATE = date.format ("yyyy-MM-dd_hh-mm")
             }
           sh 'mkdir -p internal && mkdir -p external'
-            sh 'cp -r ${RC_FOLDER}-${RC_DATE}/RC_Folder/gold/ external/ && cp -r ${RC_FOLDER}--${RC_DATE}/RC_Folder/bronze/ internal/'
+            sh 'cp -r ${RC_FOLDER}-${RC_DATE}/RC_Folder/gold/ external/ && cp -r ${RC_FOLDER}-${RC_DATE}/RC_Folder/bronze/ internal/'
           }
     
     }
