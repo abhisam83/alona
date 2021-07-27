@@ -7,7 +7,8 @@ stages {
         steps {
                 withAWS(region: 'ap-south-1' , credentials: 'awsid') \
                  {
-                      s3Download(file:'abhidata',bucket:'abhibucket00000', path:'abhi/')
+                      s3Download(file:'abhidata',bucket:'abhibucket00000', path:'gold/')
+                      s3Download((file:'abhidata',bucket:'abhibucket00000', path:'bronze/')
                    }
               }
        }
