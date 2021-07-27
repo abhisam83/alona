@@ -3,7 +3,7 @@ pipeline
     agent any
     enironment {
     
-    RC_Folder= 'abhi'
+    RC_Folder = 'abhi'
     }
 stages {
     stage ("S3 download"){
