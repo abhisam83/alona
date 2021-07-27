@@ -1,9 +1,9 @@
-pipeline
+pipeline {
 {
     agent any
+}
     enironment {
-    
-    RC_FOLDER = 'abhi'
+        RC_FOLDER = 'abhi'
     }
 stages {
     stage ("S3 download"){
