@@ -16,7 +16,7 @@ stages {
                 withAWS(region: 'ap-south-1' , credentials: 'awsid') \
                   {
                       s3Upload(
-                          bucket:'adambucket00000', file: 'adam/', path:'abhidata/')
+                          bucket:'adambucket00000', file: 'abhidata/', path:'adam/')
                    }
             }
     
