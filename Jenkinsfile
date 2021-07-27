@@ -2,7 +2,7 @@ pipeline
 {
     agent any
 
-    enironment {
+    environment {
         RC_FOLDER = 'abhi'
     }
 stages {
