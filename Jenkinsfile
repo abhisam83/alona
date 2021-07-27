@@ -11,16 +11,33 @@ stages {
                    }
               }
        }
+    stage (" File Segregation ") {
+        
+        steps {
+          sh 'mkdir -p internal && mkdir -p external'
+          sh 'cp /var/jenkins_home/workspace/s3tos3/abhidata/gold/ /external/'
+          sh 'cp /var/jenkins_home/workspace/s3tos3/abhidata/bronze/ /internal/'  
+        }
+    
+    }
     stage ("S3 Upload"){
        steps {
                 withAWS(region: 'ap-south-1' , credentials: 'awsid') \
                   {
                       s3Upload(
-                          bucket:'adambucket00000', file: 'abhidata/', path:'adam/')
+                          bucket:'adambucket00000', file: 'external/', path:'external/')
                    }
             }
-    
-      }
+        
+        steps {
+                withAWS(region: 'ap-south-1' , credentials: 'awsid') \
+                  {
+                      s3Upload(
+                          bucket:'adambucket00000', file: 'internal/', path:'internal/')
+                   }
+            }
+      
+    }
   }
 
 }    
