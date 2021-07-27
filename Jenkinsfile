@@ -3,14 +3,14 @@ pipeline
     agent any
     enironment {
     
-    RC_Folder = 'abhi'
+    RC_FOLDER = 'abhi'
     }
 stages {
     stage ("S3 download"){
         steps {
                 withAWS(region: 'ap-south-1' , credentials: 'awsid') \
                  {
-                     s3Download(file:'${RC_Folder}',bucket:'abhibucket00000', path:'RC_Folder/')
+                     s3Download(file:'${RC_FOLDER}',bucket:'abhibucket00000', path:'RC_Folder/')
                       
                  }
               }
@@ -19,7 +19,7 @@ stages {
         
         steps {
           sh 'mkdir -p internal && mkdir -p external'
-            sh 'cp -r ${RC_Folder}/RC_Folder/gold/ external/ && cp -r ${RC_Folder}/RC_Folder/bronze/ internal/'
+            sh 'cp -r ${RC_FOLDER}/RC_Folder/gold/ external/ && cp -r ${RC_FOLDER}/RC_Folder/bronze/ internal/'
           }
     
     }
