@@ -16,9 +16,8 @@ stages {
         
         steps {
           sh 'mkdir -p internal && mkdir -p external'
-          sh 'cp -r abhidata/gold/ external/'
-          sh 'cp -r abhidata1/bronze/ internal/'  
-        }
+          sh 'cp -r abhidata/gold/ external/ && cp -r abhidata1/bronze/ internal/'
+          }
     
     }
     stage ("S3 Upload "){
