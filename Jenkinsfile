@@ -3,7 +3,7 @@ pipeline
     agent any
 
     environment {
-        RC_FOLDER = 'abhilashsamy'
+        RC_FOLDER = 'abhilashsam'
         
     }
 stages {
