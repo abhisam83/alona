@@ -10,7 +10,7 @@ stages {
         steps {
                 withAWS(region: 'ap-south-1' , credentials: 'awsid') \
                  {
-                     s3Download(file:${RC_FOLDER},bucket:'abhibucket00000', path:'RC_Folder/')
+                     s3Download(file:"${RC_FOLDER}/",bucket:'abhibucket00000', path:'RC_Folder/')
                       
                  }
               }
