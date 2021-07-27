@@ -18,7 +18,9 @@ stages {
                       s3Upload(
                           bucket:'adambucket00000', file: 'adam/', path:'adam/')
                    }
-    }
+            }
     
- }
-}
+      }
+  }
+
+}    
