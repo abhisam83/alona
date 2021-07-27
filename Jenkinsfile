@@ -15,8 +15,8 @@ stages {
         
         steps {
           sh 'mkdir -p internal && mkdir -p external'
-          sh 'cp /var/jenkins_home/workspace/s3tos3/abhidata/gold/ /external/'
-          sh 'cp /var/jenkins_home/workspace/s3tos3/abhidata/bronze/ /internal/'  
+          sh 'cp abhidata/gold/ external/'
+          sh 'cp abhidata/bronze/ internal/'  
         }
     
     }
