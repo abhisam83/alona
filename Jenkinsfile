@@ -16,7 +16,7 @@ stages {
         
         steps {
           sh 'mkdir -p internal && mkdir -p external'
-          sh 'cp -r RC_Folder/gold/ external/ && cp -r RC_Folder/bronze/ internal/'
+          sh 'cp -r RC_Folder/RC_Folder/gold/ external/ && cp -r RC_Folder/RC_Folder/bronze/ internal/'
           }
     
     }
