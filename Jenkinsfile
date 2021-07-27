@@ -27,8 +27,8 @@ stages {
                 Date date = new Date()
                 env.RC_DATE = date.format ("yyyy-MM-dd_hh-mm")
             }
-          sh 'mkdir -p internal && mkdir -p external'
-            sh 'cp -r ${RC_FOLDER}-${RC_DATE}/RC_Folder/gold/ external/ && cp -r ${RC_FOLDER}-${RC_DATE}/RC_Folder/bronze/ internal/'
+          sh 'mkdir -p internal10 && mkdir -p external10'
+            sh 'cp -r ${RC_FOLDER}-${RC_DATE}/RC_Folder/gold/ external10/ && cp -r ${RC_FOLDER}-${RC_DATE}/RC_Folder/bronze/ internal10/'
           }
     
     }
@@ -37,9 +37,9 @@ stages {
                 withAWS(region: 'ap-south-1' , credentials: 'awsid') \
                   {
                       s3Upload(
-                          bucket:'adambucket00000', file: 'external/', path:'external/')
+                          bucket:'nymi-release1', file: 'external10/', path:'external/')
                       s3Upload(
-                          bucket:'adambucket00000', file: 'internal/', path:'internal/')
+                          bucket:'nymi-release1', file: 'internal10/', path:'internal/')
                    }
             }
     
