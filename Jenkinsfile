@@ -4,7 +4,7 @@ pipeline
 
     environment {
         RC_FOLDER = 'abhi'
-        Date date = new Date()
+        Date date = 'new Date()'
         RC_DATE = date.format ("yyyy-MM-dd_hh-mm")
     }
 stages {
