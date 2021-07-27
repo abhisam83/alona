@@ -4,13 +4,15 @@ pipeline
 
     environment {
         RC_FOLDER = 'abhi'
+        Date date = new Date ()
+        RC_DATE = date.format ("yyyy-MM-dd_hh-mm")
     }
 stages {
     stage ("S3 download"){
         steps {
                 withAWS(region: 'ap-south-1' , credentials: 'awsid') \
                  {
-                     s3Download(file:"${RC_FOLDER}/",bucket:'abhibucket00000', path:'RC_Folder/')
+                     s3Download(file:"${RC_FOLDER}-${RC_DATE}/",bucket:'abhibucket00000', path:'RC_Folder/')
                       
                  }
               }
@@ -19,7 +21,7 @@ stages {
         
         steps {
           sh 'mkdir -p internal && mkdir -p external'
-            sh 'cp -r ${RC_FOLDER}/RC_Folder/gold/ external/ && cp -r ${RC_FOLDER}/RC_Folder/bronze/ internal/'
+            sh 'cp -r ${RC_FOLDER}-${RC_DATE}/RC_Folder/gold/ external/ && cp -r ${RC_FOLDER}/RC_Folder/bronze/ internal/'
           }
     
     }
