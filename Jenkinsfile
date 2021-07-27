@@ -1,5 +1,6 @@
-pipeline {
-    agent  {any}
+pipeline 
+{
+    agent any
 
     enironment {
         RC_FOLDER = 'abhi'
