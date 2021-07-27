@@ -20,7 +20,7 @@ stages {
         }
     
     }
-    stage ("S3 Upload"){
+    stage ("S3 Upload to external"){
        steps {
                 withAWS(region: 'ap-south-1' , credentials: 'awsid') \
                   {
@@ -28,7 +28,7 @@ stages {
                           bucket:'adambucket00000', file: 'external/', path:'external/')
                    }
             }
-        
+    stage ("S3 Upload to internal"){    
         steps {
                 withAWS(region: 'ap-south-1' , credentials: 'awsid') \
                   {
