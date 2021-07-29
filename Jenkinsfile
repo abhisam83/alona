@@ -154,11 +154,7 @@ pipeline {
 			}
 		}
 
-	/* post {
-		cleanup {
-			cleanWs()
-		}
-	} */
+	
   
   
 }    
