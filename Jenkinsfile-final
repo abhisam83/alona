@@ -1,15 +1,7 @@
 pipeline {
 		agent any
 		
-		options {
-			buildDiscarder logRotator(
-				artifactDaysToKeepStr: '',
-				artifactNumToKeepStr: '',
-				daysToKeepStr: '',
-				numToKeepStr: '50'
-		)
-	}
-		environment {
+			environment {
 			
 			RC 		= 'RC_folder'       		//Directory name in S3 bucket nymi-rc, Eg: Value of "${RC}-${RC_DATE}/" from RC Packaging Project
 			RELEASE 	= 'firmware '    		//Release directory name, Eg: firmware, SDCT, sdk
