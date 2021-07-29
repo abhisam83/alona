@@ -29,10 +29,10 @@ pipeline {
 				script {
              			
 				sh 'echo "Downloaded Completed"'
-				def exists = fileExists "abhi-${RC_FOLDER}/${RC}/firmware"
+				def exists = fileExists "abhi-${RC_FOLDER}/${RC}/firmware/gold"
 				
 				if (exists) {
-    				sh 'echo "File is available"'
+    				sh 'mkdir -p external'
 				} else {
     					println "File doesn't exist"
 					}		
