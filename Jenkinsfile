@@ -117,25 +117,8 @@ pipeline {
 					}
 				}
 			}
-		stage('Create Shasums') {
-			steps {
-				sh """
-				cd release-${RELEASE}/
-				find * -type f -exec sha256sum "{}" + | tee SHASUMS256.txt
-				"""
-			}
-		}
-		stage('Create Manifest') {
-			steps {
-				sh "tree release-${RELEASE}/"
-				sh "tree -J release-${RELEASE}/ > release-${RELEASE}/manifest.json"
-			}
-		}
-		stage('Archive') {
-			steps {
-				archiveArtifacts artifacts: "release-${RELEASE}/", fingerprint: true
-			}
-		}	
+			
+		
 		stage ("Promote Release "){
             when {
 				branch 'release-*'
