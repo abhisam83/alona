@@ -29,15 +29,22 @@ pipeline {
 				script {
              			
 				def services = ['firmware', 'SDCT']
-                    			for (int i = 0; i < services.size(); ++i) {
-						def a = fileExists "abhi-${RC_FOLDER}/${RC}/${services[i]}"
+                    		for (int i = 0; i < services.size(); ++i) {
+					def a = fileExists "abhi-${RC_FOLDER}/${RC}/${services[i]}"
 						//sh 'mkdir -p external && mkdir -p internal'
-						if (a) {
-						
-                       				 echo "Testing the ${services[i]}"	
-					
+					if (a) {
+					sh 'echo "Testing the ${services[i]}"'
 					}
-				}	
+					else {
+					sh 'echo "Not Valid"'
+					}
+				}
+				}
+			}
+		}
+					
+						
+			
 				/* sh 'echo "Downloaded Completed"'
 				def firmware_gold = fileExists "abhi-${RC_FOLDER}/${RC}/firmware/gold"
 				
