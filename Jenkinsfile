@@ -29,11 +29,16 @@ pipeline {
 				script {
              			
 				sh 'echo "Downloaded Completed"'
-					
+				def exists = fileExists 'abhi-${RC_FOLDER}/${RC}/firmware'
+
+				if (exists) {
+    				sh 'echo "File is available"'
+				} else {
+    					println "File doesn't exist"
+					}		
 				//firmware gold
-				
-				//sh 'cd "abhi-${RC_FOLDER}/${RC}/firmware/"
-				sh 'mkdir -p abhi-${RC_FOLDER}/${RC}/firmware/abhilashalona'
+				//sh 'cd abhi-${RC_FOLDER}/${RC}/firmware/			
+				//sh 'mkdir -p abhi-${RC_FOLDER}/${RC}/firmware/abhilashalona'
 				
 					}
 				}
