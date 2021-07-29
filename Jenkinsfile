@@ -28,13 +28,26 @@ pipeline {
             
 				script {
              			
-				sh 'echo "Downloaded Completed"'
-				def exists = fileExists "abhi-${RC_FOLDER}/${RC}/firmware/gold"
+				def services = ['firmware', 'SDCT']
+                    			for (int i = 0; i < services.size(); ++i) {
+						def a = fileExists "abhi-${RC_FOLDER}/${RC}/${services[i]}"
+						//sh 'mkdir -p external && mkdir -p internal'
+						if (a) {
+						
+                       				 echo "Testing the ${services[i]}"	
+					
+					}
+				}	
+				/* sh 'echo "Downloaded Completed"'
+				def firmware_gold = fileExists "abhi-${RC_FOLDER}/${RC}/firmware/gold"
 				
-				if (exists) {
-    				sh 'mkdir -p external'
-				} else {
-    					println "File doesn't exist"
+				if (firmware_gold) {
+    				sh 'mkdir -p external && mkdir -p internal'
+				
+				} 
+				elif {
+				def firmware_bronze = fileExists "abhi-${RC_FOLDER}/${RC}/firmware/bronze"
+    				sh 'mkdir -p internal'	
 					}		
 				//firmware gold
 				//sh 'cd abhi-${RC_FOLDER}/${RC}/firmware/			
@@ -43,7 +56,7 @@ pipeline {
 					}
 				}
 			}
-			
+			*/
 		
 		stage ("Promote Release "){
             when {
