@@ -32,8 +32,8 @@ pipeline {
 					
 				//firmware gold
 				
-				sh 'cd abhi-${RC_FOLDER}/${RC}/firmware/'
-				sh 'mkdir -p abhilashalona'
+				//sh 'cd "abhi-${RC_FOLDER}/${RC}/firmware/"
+				sh 'mkdir -p abhi-${RC_FOLDER}/${RC}/firmware/abhilashalona'
 				
 					}
 				}
