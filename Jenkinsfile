@@ -2,7 +2,7 @@ pipeline {
 		agent any
 		
 			environment {
-			a		= 'firmware'
+			SVC		= 'firmware'
 			RC 		= 'RC_folder'       		//Directory name in S3 bucket nymi-rc, Eg: Value of "${RC}-${RC_DATE}/" from RC Packaging Project
 			RELEASE 	= 'firmware '    		//Release directory name, Eg: firmware, SDCT, sdk
 			RC_FOLDER 	= 's3downloader'  				//Download directory in workspace, Eg: <any name>
@@ -28,7 +28,7 @@ pipeline {
             
 				script {
              			
-					def services = ['SDCT', 'sdk', "${a}"]
+					def services = ['SDCT', 'sdk', "${SVC}"]
                     		for (int i = 0; i < services.size(); ++i) {
 					def a = fileExists "abhi-${RC_FOLDER}/${RC}/${services[i]}"
 						
