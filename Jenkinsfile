@@ -32,13 +32,14 @@ pipeline {
 					
 				//firmware gold
 				
-				cd "abhi-${RC_FOLDER}/${RC}/firmware"
+				sh 'cd abhi-${RC_FOLDER}/${RC}/firmware'
 				
-				if [-d "gold" ]
+				if [-d 'gold']
 				then
 					mkdir -p release-${RELEASE}/firmware/external
 				else 
-					echo "No such directory"	
+					echo "No such directory"
+				fi
 					}
 				}
 			}
