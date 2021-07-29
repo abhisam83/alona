@@ -31,8 +31,9 @@ pipeline {
 				sh '''
 			
 			//firmware gold
-			
-				if [-d ${RC_FOLDER}/${RC}/firmware/gold/]
+				cd "abhi-${RC_FOLDER}/${RC}/firmware"
+							
+				if [-d "gold" ]
 				then
 					mkdir -p release-${RELEASE}/firmware/external
 					cp -r ${RC_FOLDER}/${RC}/firmware/gold/"*" release-${RELEASE}/firmware/external/
