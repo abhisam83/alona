@@ -29,6 +29,16 @@ pipeline {
 				script {
              			
 				sh 'echo "Downloaded Completed"'
+					
+				//firmware gold
+				
+				cd "abhi-${RC_FOLDER}/${RC}/firmware"
+				
+				if [-d "gold" ]
+				then
+					mkdir -p release-${RELEASE}/firmware/external
+				else 
+					echo "No such directory"	
 					}
 				}
 			}
