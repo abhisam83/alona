@@ -30,7 +30,7 @@ pipeline {
 				withAWS(region: 'ca-central-1' , credentials: '989a2e22-7bab-4398-8b74-6cf683f217ce') \
                  {
                      s3Download(
-					 acl: 'Private', file:"${RC_FOLDER}/", bucket:'nymi-rc1', path:'${RC}/')
+					 file:"${RC_FOLDER}/", bucket:'nymi-rc1', path:'${RC}/')
                       
                  }
               }
