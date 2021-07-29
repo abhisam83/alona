@@ -33,10 +33,7 @@ pipeline {
 					def a = fileExists "abhi-${RC_FOLDER}/${RC}/${services[i]}"
 						//sh 'mkdir -p external && mkdir -p internal'
 					if (a) {
-					sh 'echo "Testing the ${services[i]}"'
-					}
-					else {
-					sh 'echo "Not Valid"'
+					 sh 'mkdir -p external && mkdir -p internal'
 					}
 				}
 				}
