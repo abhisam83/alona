@@ -2,7 +2,7 @@ pipeline {
 		agent any
 		
 			environment {
-			
+			a		= 'firmware'
 			RC 		= 'RC_folder'       		//Directory name in S3 bucket nymi-rc, Eg: Value of "${RC}-${RC_DATE}/" from RC Packaging Project
 			RELEASE 	= 'firmware '    		//Release directory name, Eg: firmware, SDCT, sdk
 			RC_FOLDER 	= 's3downloader'  				//Download directory in workspace, Eg: <any name>
@@ -28,14 +28,19 @@ pipeline {
             
 				script {
              			
-				def services = ['firmware', 'SDCT']
+					def services = ['SDCT', 'sdk', ${a}]
                     		for (int i = 0; i < services.size(); ++i) {
 					def a = fileExists "abhi-${RC_FOLDER}/${RC}/${services[i]}"
 						
 						sh "mkdir -p '${services[i]}'/external && mkdir -p '${services[i]}'/internal"
 						if (a) {
 					 	sh "cp -R abhi-${RC_FOLDER}/'${RC}'/'${services[i]}'/gold '${services[i]}'/external/"
+						sh "cp -R abhi-${RC_FOLDER}/'${RC}'/'${services[i]}'/bronze '${services[i]}'/internal/"
 					        //sh 'cp -R 'abhi-${RC_FOLDER}/${RC}/${services[i]}/bronze /${services[i]}/internal/ '
+						}
+						
+						else {
+						sh 'echo Invalid entry'
 						}
 				}
 				}
