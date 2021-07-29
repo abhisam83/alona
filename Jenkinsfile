@@ -33,8 +33,8 @@ pipeline {
 					def a = fileExists "abhi-${RC_FOLDER}/${RC}/${services[i]}"
 						
 						sh "mkdir -p '${services[i]}'/external && mkdir -p '${services[i]}'/internal"
-						//if (a) {
-					 	//sh 'cp -R 'abhi-${RC_FOLDER}/${RC}/${services[i]}/gold /${services[i]}/external/ '
+						if (a) {
+					 	sh 'cp -R "abhi-'${RC_FOLDER}'/'${RC}'/'${services[i]}'/gold '${services[i]}'/external/ "
 					        //sh 'cp -R 'abhi-${RC_FOLDER}/${RC}/${services[i]}/bronze /${services[i]}/internal/ '
 					
 				}
