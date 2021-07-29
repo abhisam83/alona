@@ -28,7 +28,7 @@ pipeline {
             
 				script {
              			
-					def services = ['SDCT', 'sdk', "${SVC}", 'firm*']
+					def services = ['SDCT', 'sdk', 'firm*']
                     		        for (int i = 0; i < services.size(); ++i) {
 					def a = fileExists "abhi-${RC_FOLDER}/${RC}/${services[i]}"
 						
