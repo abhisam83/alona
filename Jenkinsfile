@@ -29,8 +29,8 @@ pipeline {
 				script {
              			
 				sh 'echo "Downloaded Completed"'
-				def exists = fileExists 'abhi-${RC_FOLDER}/${RC}/firmware'
-
+				def exists = fileExists "abhi-${RC_FOLDER}/${RC}/firmware"
+				
 				if (exists) {
     				sh 'echo "File is available"'
 				} else {
