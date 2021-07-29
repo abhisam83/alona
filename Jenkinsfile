@@ -5,7 +5,7 @@ pipeline {
 			
 			RC 		= 'RC_folder'       		//Directory name in S3 bucket nymi-rc, Eg: Value of "${RC}-${RC_DATE}/" from RC Packaging Project
 			RELEASE 	= 'firmware '    		//Release directory name, Eg: firmware, SDCT, sdk
-			RC_FOLDER 	= 's3download'  				//Download directory in workspace, Eg: <any name>
+			RC_FOLDER 	= 's3downloader'  				//Download directory in workspace, Eg: <any name>
 	} 
 	
 	stages {
@@ -17,7 +17,7 @@ pipeline {
 				withAWS(region: 'ap-south-1' , credentials: 'awsid') \
                  {
                      s3Download(
-					 file: '${RC_FOLDER}/', bucket:'nymi-rc1', path:'${RC}/')
+					 file: "abhi-${RC_FOLDER}/", bucket:'nymi-rc1', path:"${RC}/")
                       
                  }
               }
