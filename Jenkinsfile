@@ -19,7 +19,7 @@ pipeline {
 					env.RC_DATE = date.format ("yyyy-MM-dd_hh-mm")
 				}
                 
-				withAWS(region: 'ca-central-1' , credentials: '989a2e22-7bab-4398-8b74-6cf683f217ce') \
+				withAWS(region: 'ap-south-1' , credentials: 'awsid') \
                  {
                      s3Download(
 					 file:"${RC_FOLDER}/", bucket:'nymi-rc1', path:'${RC}/')
@@ -142,7 +142,7 @@ pipeline {
 			}
 			steps {	   
 		        
-				withAWS(region: 'ca-central-1' , credentials: '6dbf9a40-17cc-4aa2-a870-9cdd9bab3502') \
+				withAWS(region: 'ap-south-1' , credentials: 'awsid') \
                   {
                       s3Upload(
                           acl: 'Private', bucket:'nymi-release1', file: 'release-${RELEASE}', path:'release-${RELEASE}')
