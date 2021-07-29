@@ -22,7 +22,7 @@ pipeline {
 				withAWS(region: 'ap-south-1' , credentials: 'awsid') \
                  {
                      s3Download(
-					 file:"${RC_FOLDER}", bucket:'nymi-rc1', path:'${RC}')
+					 file:"${RC_FOLDER}", bucket:'nymi-rc1', path:'${RC}/')
                       
                  }
               }
