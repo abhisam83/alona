@@ -4,7 +4,7 @@ pipeline {
 			environment {
 			
 			RC 		= 'RC_folder'       		
-			RELEASE 	= 'firmware '    		
+			    		
 			 				
 	} 
 	
