@@ -13,8 +13,7 @@ pipeline {
 		Stage("Copying source S3 to target S3") {
 			step {
 				withAWS(region: 'ap-south-1' , credentials: 'awsid')
-				s3copy(
-					fromBucket: 'nymi-rc1', fromPath: "${RC}/", toBucket: 'nymi-release1', toPath: release-"${RELEASE}")
+				aws s3 cp s3://nymi-rc1/RC_Folder s3://nymi-release1/ --recursive
 			
 
 	}
